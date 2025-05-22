@@ -7,19 +7,31 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField] private float _bulletSpeed;
 
-    private bool _attackContinuously;
+    [SerializeField] private Transform _gunOffset;
+
+    [SerializeField] private float _timeBetweenShots;
+
+    private bool _fireContinuously;
+    private float _lastFireTime;
 
     void Update()
     {
-        if (_attackContinuously)
+        if (_fireContinuously)
         {
-            FireBullet();
+            float timeSinceLastFire = Time.time - _lastFireTime;
+
+            if (timeSinceLastFire >= _timeBetweenShots)
+            {
+                FireBullet();
+
+                _lastFireTime = Time.time;
+            }
         }
     }
 
     private void FireBullet()
     {
-        GameObject bullet = Instantiate(_bulletPrefab, transform.position, transform.rotation);
+        GameObject bullet = Instantiate(_bulletPrefab, _gunOffset.position, transform.rotation);
         Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
 
         rigidbody.linearVelocity = _bulletSpeed * transform.up;
@@ -27,6 +39,6 @@ public class PlayerShoot : MonoBehaviour
 
     private void OnFire(InputValue inputValue)
     {
-        _attackContinuously = inputValue.isPressed;
+        _fireContinuously = inputValue.isPressed;
     }
 }
