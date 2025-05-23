@@ -22,12 +22,12 @@ public class SpriteFlash : MonoBehaviour
             elapsedFlashTime += Time.deltaTime;
             elapsedFlashPercentage = elapsedFlashTime / flashDuration;
 
-            if (elapsedFlashPercentage > 1f)
+            if (elapsedFlashPercentage > 1)
             {
-                elapsedFlashPercentage = 1f;
+                elapsedFlashPercentage = 1;
             }
 
-            float pingPongPercentage = Mathf.PingPong(elapsedFlashPercentage * 2f * numberOfFlashes, 1f);
+            float pingPongPercentage = Mathf.PingPong(elapsedFlashPercentage * 2 * numberOfFlashes, 1);
             _spriteRenderer.color = Color.Lerp(startColor, flashColor, pingPongPercentage);
 
             yield return null;
