@@ -3,6 +3,11 @@ using UnityEngine;
 public class PlayerDamagedInvincibility : MonoBehaviour
 {
     [SerializeField] private float _invincibilityDuration;
+
+    [SerializeField] private Color _flashColor;
+
+    [SerializeField] private int _numberOfFlashes;
+
     private InvincibilityController _invincibilityController;
 
     private void Awake()
@@ -12,6 +17,6 @@ public class PlayerDamagedInvincibility : MonoBehaviour
 
     public void StartInvincibility()
     {
-        _invincibilityController.StartInvincibility(_invincibilityDuration);
+        _invincibilityController.StartInvincibility(_invincibilityDuration, _flashColor, _numberOfFlashes);
     }
 }

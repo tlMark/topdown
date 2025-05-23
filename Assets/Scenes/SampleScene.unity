@@ -1085,6 +1085,7 @@ GameObject:
   - component: {fileID: 1781537471}
   - component: {fileID: 1781537477}
   - component: {fileID: 1781537472}
+  - component: {fileID: 1781537478}
   - component: {fileID: 1781537475}
   - component: {fileID: 1781537467}
   - component: {fileID: 1781537474}
@@ -1322,6 +1323,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _invincibilityDuration: 3
+  _flashColor: {r: 1, g: 1, b: 1, a: 1}
+  _numberOfFlashes: 10
 --- !u!61 &1781537474
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1472,6 +1475,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1781537478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781537464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771d6c92cfbc0e14186ca5229de1d496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1998430727
 GameObject:
   m_ObjectHideFlags: 0
