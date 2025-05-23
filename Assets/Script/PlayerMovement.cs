@@ -10,21 +10,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _screenBorder;
 
     private Rigidbody2D _rigidbody;
+    private Camera _camera;
+    private Animator _animator;
     private Vector2 _movementInput;
     private Vector2 _smoothedMovementInput;
     private Vector2 _movementInputSmoothVelocity;
-    private Camera _camera;
+    
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _camera = Camera.main;
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
         SetPlayerVelocity();
         RotateInDirectionOfInput();
+        SetAnimation();
+    }
+
+    private void SetAnimation()
+    {
+        bool isMoving = _movementInput != Vector2.zero;
+
+        _animator.SetBool("isMoving", isMoving);
     }
 
     private void SetPlayerVelocity()

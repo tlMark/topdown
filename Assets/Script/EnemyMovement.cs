@@ -11,9 +11,11 @@ public class EnemyMovement : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private PlayerAwarenessController _playerAwarenessController;
-    private Vector2 _targetDirection;
-    private float _changeDirectionCooldown;
     private Camera _camera;
+
+    private Vector2 _targetDirection;
+
+    private float _changeDirectionCooldown;
 
     private void Awake()
     {
