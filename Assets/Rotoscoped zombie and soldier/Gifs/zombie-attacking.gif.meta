@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      zombie-attacking_0: -6516847418375952558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
