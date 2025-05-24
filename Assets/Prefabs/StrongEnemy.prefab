@@ -30,11 +30,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
       propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+      propertyPath: OnHealthChanged.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1130716577315252609}
+    - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
       propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: EnemyDamagedFlash, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794566972678677493, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+      propertyPath: OnDamaged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4095267423612263139, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
       propertyPath: _speed
@@ -109,3 +133,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+--- !u!114 &1130716577315252609 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2593496646626798513, guid: 00d1a7b88ff66c741a31972efcd860a2, type: 3}
+  m_PrefabInstance: {fileID: 3192189886507385392}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d6c519e11e4304eb3f4b5f69114e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
