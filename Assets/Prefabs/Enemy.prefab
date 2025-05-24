@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: -3087974699999579898}
   - component: {fileID: 5208966020845426181}
   - component: {fileID: 5045991582729030505}
+  - component: {fileID: 2593496646626798513}
   - component: {fileID: 3794566972678677493}
   - component: {fileID: 1933381186176089036}
+  - component: {fileID: 3480938504948574538}
   - component: {fileID: 5578212865131309254}
   - component: {fileID: 8097775298144594654}
   - component: {fileID: 220816504288106633}
@@ -57,6 +59,11 @@ MonoBehaviour:
   _speed: 1
   _rotationSpeed: 100
   _screenBorder: 0
+  _obstacleCheckCircleRadius: 0
+  _obstacleCheckDistance: 0
+  _obstacleLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &3226912663286753400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,6 +116,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _chanceOfColletableDrop: 0.3
+--- !u!114 &2593496646626798513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457921761778416735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d6c519e11e4304eb3f4b5f69114e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashDuration: 0.2
+  _flashColor: {r: 1, g: 0, b: 0, a: 1}
+  _numberOfFlashes: 1
 --- !u!114 &3794566972678677493
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,7 +222,19 @@ MonoBehaviour:
         m_CallState: 2
   OnDamaged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2593496646626798513}
+        m_TargetAssemblyTypeName: EnemyDamagedFlash, Assembly-CSharp
+        m_MethodName: StartFlash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -214,6 +248,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4e60eb7aa68469488a8580f9b3a255a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3480938504948574538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2457921761778416735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771d6c92cfbc0e14186ca5229de1d496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!95 &5578212865131309254
