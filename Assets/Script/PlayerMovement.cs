@@ -49,6 +49,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void PreventPlayerGoingOffScreen()
     {
+        if (_camera == null)
+        {
+            return;
+        }
+
         Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
 
         if ((screenPosition.x < _screenBorder && _rigidbody.linearVelocityX < 0) ||
@@ -66,13 +71,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotateInDirectionOfInput()
     {
-        if (_movementInput != Vector2.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(transform.forward, _smoothedMovementInput);
-            Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+        Vector3 mouseScreenPosition = UnityEngine.InputSystem.Mouse.current.position.ReadValue();
 
-            _rigidbody.MoveRotation(rotation);
-        }
+        Vector3 mouseWorldPosition = _camera.ScreenToWorldPoint(mouseScreenPosition);
+        mouseWorldPosition.z = 0;
+
+        Vector3 direction = mouseWorldPosition - transform.position;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
+
+        _rigidbody.MoveRotation(rotation);
     }
 
     private void OnMove(InputValue inputValue)

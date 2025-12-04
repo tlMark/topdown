@@ -27,6 +27,11 @@ public class Bullet : MonoBehaviour
 	
 	private void DestroyWhenOffScreen()
 	{
+		if (_camera == null)
+    	{
+        	return;
+    	}
+		
 		Vector2 screenPosition = _camera.WorldToScreenPoint(transform.position);
 
 		if (screenPosition.x < 0 || screenPosition.x > _camera.pixelWidth || 

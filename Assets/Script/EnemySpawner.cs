@@ -4,6 +4,9 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject _enemyPrefab;
 
+    [Header("Boss Settings")]
+    [SerializeField] private bool _isBossSpawner = false;
+
     [SerializeField] private float _minimumSpawnTime;
 
     [SerializeField] private float _maximumSpawnTime;
@@ -22,7 +25,17 @@ public class EnemySpawner : MonoBehaviour
 
         if (_timeUntilSpawn <= 0)
         {
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+            GameObject enemyInstance = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+            if (_isBossSpawner) 
+            {
+                HealthController healthController = enemyInstance.GetComponent<HealthController>();
+                GameManager gameManager = FindFirstObjectByType<GameManager>();
+                if (healthController != null && gameManager != null)
+                {
+                    healthController.OnDied.AddListener(gameManager.OnBossDied);
+                }
+                enabled = false;
+            }
             SetTimeUntilSpawn();
         }
     }

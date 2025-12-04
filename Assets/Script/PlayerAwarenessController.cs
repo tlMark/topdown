@@ -18,6 +18,12 @@ public class PlayerAwarenessController : MonoBehaviour
 
     void Update()
     {
+        if (_player == null)
+        {
+            AwareOfPlayer = false; // 선택 사항: 인지 상태를 비활성화
+            return; 
+        }
+
         Vector2 enemyToPlayerVector = _player.position - transform.position;
         DirectionToPlayer = enemyToPlayerVector.normalized;
 
